@@ -12,7 +12,7 @@ public class User {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.UUID)
-    private int id;
+    private String id;
 
     @Column(name = "NAME", length = 20, nullable = false)
     private String name;
@@ -28,7 +28,7 @@ public class User {
 
     public User(){};
 
-    public User(int id, String name, String email, String about, List<Rating> ratings){
+    public User(String id, String name, String email, String about, List<Rating> ratings){
         this.id = id;
         this.name = name;
         this.email = email;
@@ -36,11 +36,11 @@ public class User {
         this.ratings = ratings;
     }
 
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
 
-    public int getId(){
+    public String getId(){
         return this.id;
     }
 
