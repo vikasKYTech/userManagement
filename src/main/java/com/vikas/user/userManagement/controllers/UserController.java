@@ -20,17 +20,17 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/getUser/{id}")
-    public ResponseEntity<User> getUser(@PathVariable(name = "id") int id){
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable(name = "id") String id){
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUser(id));
     }
 
-    @PostMapping("/saveUser")
+    @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(user));
     }
 
-    @GetMapping("/getUsers")
+    @GetMapping
     public ResponseEntity<List<User>> getAllUser(){
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
